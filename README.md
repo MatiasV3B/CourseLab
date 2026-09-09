@@ -5,10 +5,8 @@
 ### The First Interactive AI Notebook with Preloaded Official Curricula & Connected Classrooms
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Discord](https://img.shields.io/badge/Discord-Join%20Community-5865F2?logo=discord&logoColor=white)](https://discord.gg/tu-enlace-de-discord)
+[![Discord](https://img.shields.io/badge/Discord-Join%20Community-5865F2?logo=discord&logoColor=white)](https://discord.gg/DE96t7w4XJ)
 [![Status: Waitlist](https://img.shields.io/badge/Status-Beta%20Waitlist%20Active-1D72FE)](https://courselab.vercel.app)
-[![Tech: Supabase](https://img.shields.io/badge/Backend-Supabase-3ECF8E?logo=supabase&logoColor=white)](https://supabase.com)
-[![AI: NVIDIA NIM](https://img.shields.io/badge/AI-NVIDIA%20API-76B900?logo=nvidia&logoColor=white)](https://build.nvidia.com)
 
 <p align="center">
   <a href="#about">About</a> •
@@ -48,8 +46,8 @@ Studying for advanced high school examinations (such as **Advanced Placement® (
 ## 🛠️ Tech Stack
 
 * **Frontend:** Next.js / HTML5, Tailwind CSS, TypeScript
-* **Database & Auth:** [Supabase](https://supabase.com/) (PostgreSQL with Row-Level Security, Supabase Auth & Storage)
-* **AI & High-Speed Inference:** [NVIDIA NIM](https://build.nvidia.com/) & ultra-low latency inference engines (Llama / Nemotron models)
+* **Database & Auth:** (PostgreSQL with Row-Level Security, Supabase Auth & Storage)
+* **AI & High-Speed Inference:** ultra-low latency inference engines (Llama / Nemotron models)
 * **Source Grounding:** NotebookLM-inspired RAG architecture for zero-hallucination citations
 * **Document Engine:** Dynamic HTML-to-PDF and PowerPoint (.pptx) conversion
 
