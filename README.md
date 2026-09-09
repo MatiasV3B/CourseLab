@@ -5,7 +5,7 @@
 ### The First Interactive AI Notebook with Preloaded Official Curricula & Connected Classrooms
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Discord](https://img.shields.io/badge/Discord-Join%20Community-5865F2?logo=discord&logoColor=white)](https://discord.gg/tu-enlace-de-discord)
+[![Discord](https://img.shields.io/badge/Discord-Join%20Community-5865F2?logo=discord&logoColor=white)](https://discord.gg/DE96t7w4XJ)
 [![Status: Waitlist](https://img.shields.io/badge/Status-Beta%20Waitlist%20Active-1D72FE)](https://courselab.vercel.app)
 [![Tech: Supabase](https://img.shields.io/badge/Backend-Supabase-3ECF8E?logo=supabase&logoColor=white)](https://supabase.com)
 [![AI: NVIDIA NIM](https://img.shields.io/badge/AI-NVIDIA%20API-76B900?logo=nvidia&logoColor=white)](https://build.nvidia.com)
