@@ -74,7 +74,7 @@ export const HeroWaitlist: React.FC = () => {
         {/* Curricula Pill Badge */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-xs font-mono text-[#1D72FE] font-semibold tracking-wide mb-6 shadow-xs">
           <span className="w-2 h-2 rounded-full bg-[#1D72FE]" />
-          <span>Academic Year 2026-2027 · College Board AP &amp; IB</span>
+          <span>College Board AP &amp; IB</span>
         </div>
 
         {/* Catchy 1-Line Headline */}
