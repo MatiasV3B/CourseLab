@@ -1,2 +1,38 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# 1. Normalización automática de finales de línea (Cross-platform Line Endings)
+# Trata todos los archivos de texto como auto y fuerza finales de línea LF al hacer checkout en Unix/Mac
+* text=auto eol=lf
+
+# 2. Código fuente y archivos de configuración web
+*.js        text diff=javascript
+*.jsx       text diff=javascript
+*.ts        text diff=typescript
+*.tsx       text diff=typescript
+*.json      text
+*.html      text diff=html
+*.css       text diff=css
+*.scss      text diff=css
+*.svg       text
+
+# 3. Documentación y Markdown
+*.md        text
+*.markdown  text
+*.txt       text
+
+# 4. Archivos binarios (Imágenes, documentos y fuentes)
+# Evita que Git intente fusionar o corromper binarios como texto
+*.png       binary
+*.jpg       binary
+*.jpeg      binary
+*.gif       binary
+*.ico       binary
+*.webp      binary
+*.pdf       binary
+*.docx      binary
+*.pptx      binary
+*.woff      binary
+*.woff2     binary
+*.ttf       binary
+
+# 5. Archivos de configuración de entorno (Nunca deben cambiar finales de línea)
+.env*       text eol=lf
+.gitignore  text eol=lf

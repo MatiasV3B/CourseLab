@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>
+  @layer base {
+    html, body { margin: 0; padding: 0; }
+    body { overscroll-behavior: none; }
+    main > :first-child { margin-top: 0 !important; }
+    main > :last-child { margin-bottom: 0 !important; }
+  }
+  ::-webkit-scrollbar { display: none; }
+
+  /* Keyframe Animations & Micro-interactions */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes pulseSubtle {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.08); opacity: 0.8; }
+  }
+
+  @keyframes fillProgressUnit1 {
+    from { width: 0%; }
+    to { width: 78%; }
+  }
+
+  @keyframes fillProgressUnit2 {
+    from { width: 0%; }
+    to { width: 42%; }
+  }
+
+  @keyframes ambientGlowPulse {
+    0%, 100% { opacity: 0.35; transform: scale(1); }
+    50% { opacity: 0.55; transform: scale(1.05); }
+  }
+
+  /* Stagger animation utilities */
+  .anim-fade-in {
+    animation: fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .anim-fade-up {
+    opacity: 0;
+    animation: fadeInUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .anim-delay-1 { animation-delay: 0.08s; }
+  .anim-delay-2 { animation-delay: 0.18s; }
+  .anim-delay-3 { animation-delay: 0.28s; }
+  .anim-delay-4 { animation-delay: 0.38s; }
+  .anim-delay-5 { animation-delay: 0.48s; }
+  .anim-delay-6 { animation-delay: 0.58s; }
+  .anim-delay-7 { animation-delay: 0.68s; }
+
+  /* Animated progress bars */
+  .progress-fill-unit1 {
+    animation: fillProgressUnit1 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s forwards;
+    width: 0%;
+  }
+
+  .progress-fill-unit2 {
+    animation: fillProgressUnit2 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.7s forwards;
+    width: 0%;
+  }
+
+  .animate-ambient-glow {
+    animation: ambientGlowPulse 8s ease-in-out infinite;
+  }
+
+  /* Interactive card hover lift & outline transitions */
+  .interactive-card {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.35s ease,
+                background-color 0.35s ease;
+  }
+  .interactive-card:hover {
+    transform: translateY(-4px);
+  }
+
+  /* Accessibility: Prefers Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    .anim-fade-up, .anim-fade-in {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+    .progress-fill-unit1 { width: 78% !important; }
+    .progress-fill-unit2 { width: 42% !important; }
+  }
+</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"inverse-primary":"#0057ce","on-tertiary-fixed-variant":"#424657","tertiary-container":"#8c90a3","surface-container-highest":"#e2e8f0","on-tertiary-fixed":"#161b2a","secondary":"#1d72fe","tertiary-fixed-dim":"#64748b","on-primary-fixed-variant":"#00419e","surface-variant":"#f1f5f9","surface-bright":"#ffffff","outline":"#64748b","secondary-fixed-dim":"#1d72fe","error":"#ef4444","on-error-container":"#991b1b","error-container":"#fee2e2","primary-container":"#1d72fe","surface-container-high":"#f1f5f9","tertiary-fixed":"#e2e8f0","primary-fixed-dim":"#1d72fe","secondary-container":"#dbeafe","on-secondary":"#ffffff","on-tertiary-container":"#0f172a","on-secondary-container":"#1e3a8a","inverse-surface":"#0f172a","on-secondary-fixed-variant":"#1e40af","inverse-on-surface":"#f8fafc","primary-fixed":"#dbeafe","outline-variant":"#cbd5e1","on-primary":"#ffffff","on-secondary-fixed":"#ffffff","on-tertiary":"#ffffff","surface-tint":"#1d72fe","surface-container-low":"#f8fafc","surface-container":"#f1f5f9","on-surface":"#0f172a","primary":"#1d72fe","on-error":"#ffffff","surface":"#f8fafc","on-background":"#0f172a","on-primary-container":"#ffffff","surface-container-lowest":"#ffffff","tertiary":"#64748b","on-surface-variant":"#64748b","secondary-fixed":"#dbeafe","background":"#f8fafc","surface-dim":"#f1f5f9","on-primary-fixed":"#ffffff"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"fontFamily":{"headline":["Plus Jakarta Sans"],"display":["Plus Jakarta Sans"],"body":["Inter"],"label":["JetBrains Mono"]}}}}</script></head><body class="bg-surface font-body text-on-surface antialiased selection:bg-secondary/20 selection:text-secondary min-h-screen"><header class="fixed top-0 left-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.06)] anim-fade-in transition-colors duration-300"><div class="h-16 w-full px-6 lg:px-8 flex items-center justify-between gap-4"><div class="flex items-center gap-6"><div class="flex items-center gap-3 group cursor-pointer"><img alt="CourseLab App Icon" class="h-8 w-auto object-contain transition-transform duration-300 ease-out group-hover:scale-105 group-hover:rotate-3" src="https://lh3.googleusercontent.com/aida/AEtjO1VLQVKprdE6xCKNAn_FDKEKiTUP287ABv7vvwrUmLTqXjQW8IfhzbU8Ksz-rsXYT0mPrUfH-norDMwdvWv5UoTngVvtQOQz_R913NsSmZJGB3tgM_cJ-OGiau-Xs72foyvcDpfmRxClGeTgGbUt_gZ7QDgn7oiDNaHorTU5rgfT4ePsP7AIP2-4wpcR2fr9KwIlSgmaBY9lc4hDlN7bL6wKkadv86wBsz-hXnMTLOrZuOHv3OtYAB9Zh_Y"/><span class="text-lg font-headline font-extrabold tracking-tight text-on-surface">Course<span class="text-secondary transition-colors duration-300 group-hover:text-secondary-fixed">Lab</span></span></div><div class="h-4 w-px bg-surface-container-highest hidden sm:block"></div><button class="group flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container active:scale-[0.98] text-on-surface-variant hover:text-on-surface transition-all duration-200 text-xs font-medium border border-outline-variant/30 hover:border-secondary/40" type="button"><span class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(29,114,254,0.4)] animate-pulse"></span><span class="font-semibold text-on-surface">AP Human Geography</span><span class="material-symbols-outlined text-sm text-outline group-hover:text-on-surface group-hover:translate-y-0.5 transition-transform duration-200">expand_more</span></button></div><nav class="hidden xl:flex items-center gap-1 p-1 rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30 shadow-sm" data-active-classes="bg-surface-container-high text-on-surface font-semibold rounded-lg shadow-[0_0_12px_rgba(29,114,254,0.08)]"><a aria-current="page" class="px-3.5 py-1.5 bg-surface-container-high text-on-surface font-semibold rounded-lg shadow-[0_0_12px_rgba(29,114,254,0.08)] transition-all duration-200" data-path="units" href="#">Units</a><a class="px-3.5 py-1.5 text-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/60 transition-all duration-200 rounded-lg font-medium" data-path="review" href="#">Review</a><a class="px-3.5 py-1.5 text-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/60 transition-all duration-200 rounded-lg font-medium" data-path="ai-coach" href="#">AI Coach</a><a class="px-3.5 py-1.5 text-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/60 transition-all duration-200 rounded-lg font-medium" data-path="library" href="#">Library</a><a class="px-3.5 py-1.5 text-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/60 transition-all duration-200 rounded-lg font-medium" data-path="practice" href="#">Practice</a></nav><div class="flex items-center gap-3"><button class="hidden md:flex items-center gap-3 px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container-high active:scale-[0.98] text-on-surface-variant hover:text-on-surface transition-all duration-200 text-xs border border-transparent hover:border-outline-variant/40" type="button"><span class="material-symbols-outlined text-base transition-transform group-hover:scale-110">search</span><span>Search topics, notes...</span><kbd class="px-1.5 py-0.5 rounded bg-surface-container-highest text-[10px] font-label text-outline font-semibold tracking-wide border border-outline-variant/30">⌘K</kbd></button><button class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-secondary text-on-secondary font-headline font-semibold text-xs transition-all duration-200 shadow-[0_0_20px_rgba(29,114,254,0.25)] hover:shadow-[0_0_28px_rgba(29,114,254,0.4)] hover:bg-secondary/90 active:scale-95 active:shadow-none" type="button"><span class="material-symbols-outlined text-sm font-bold animate-spin" style="animation-duration: 8s;">auto_awesome</span><span>Tutor Me</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center cursor-pointer transition-transform duration-200 hover:scale-105 active:scale-95 ring-2 ring-transparent hover:ring-secondary/50"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<!-- Radial ambient background glow -->
+<div class="relative w-full overflow-hidden px-4 sm:px-6 lg:px-12 py-10 lg:py-16 max-w-7xl mx-auto flex flex-col items-center">
+<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-secondary/5 blur-[130px] pointer-events-none rounded-full animate-ambient-glow"></div>
+<div class="absolute top-1/3 left-1/4 -translate-x-1/2 w-[350px] h-[250px] bg-primary-container/5 blur-[110px] pointer-events-none rounded-full animate-ambient-glow" style="animation-delay: -3s;"></div>
+<!-- Centered Hero & Search Section -->
+<div class="relative z-10 w-full max-w-3xl flex flex-col items-center text-center mb-12">
+<div class="anim-fade-up anim-delay-1 inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-surface-container-high/80 border border-secondary/20 text-secondary text-xs font-semibold tracking-wide uppercase mb-6 shadow-sm hover:border-secondary/40 transition-colors duration-300">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse shadow-[0_0_8px_rgba(29,114,254,0.8)]"></span>
+        Interactive AP Study Workspace
+      </div>
+<h1 class="anim-fade-up anim-delay-2 text-3xl sm:text-4xl lg:text-5xl font-headline font-bold tracking-tight text-on-surface mb-8">
+        What did you study today?
+      </h1>
+<!-- Search Input Container with Glowing Ring Effect -->
+<div class="anim-fade-up anim-delay-3 w-full relative group">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-secondary via-primary-container to-secondary rounded-2xl blur-md opacity-20 group-focus-within:opacity-75 transition duration-500"></div>
+<div class="relative flex items-center w-full h-14 sm:h-16 px-5 rounded-2xl bg-surface-container-lowest backdrop-blur-xl shadow-lg border border-outline-variant/40 group-focus-within:border-secondary/70 transition-colors duration-300">
+<span class="material-symbols-outlined text-secondary text-2xl mr-3 select-none transition-transform duration-300 group-focus-within:scale-110">search</span>
+<input class="w-full bg-transparent text-on-surface placeholder:text-outline text-sm sm:text-base font-body focus:outline-none" id="study-search" placeholder="Search units, topics, or documents..." type="text"/>
+<div class="flex items-center gap-2 ml-3">
+<kbd class="hidden sm:inline-flex items-center justify-center px-2 py-1 rounded bg-surface-container-high text-[11px] font-label font-semibold text-outline-variant shadow-inner border border-outline-variant/30">
+              ⌘K
+            </kbd>
+<button class="p-2 rounded-xl bg-secondary/10 hover:bg-secondary/20 active:scale-95 text-secondary transition-all duration-200" title="AI Search Assist" type="button">
+<span class="material-symbols-outlined text-xl">auto_awesome</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Filter Pills -->
+<div class="anim-fade-up anim-delay-4 flex items-center justify-center flex-wrap gap-2 mt-6">
+<button class="filter-btn active px-3.5 py-1.5 rounded-full text-xs font-headline font-semibold transition-all duration-200 transform active:scale-95 bg-secondary text-on-secondary shadow-[0_0_16px_rgba(29,114,254,0.3)]" type="button">
+          All Content
+        </button>
+<button class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-headline font-medium transition-all duration-200 transform hover:-translate-y-0.5 active:scale-95 bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface border border-outline-variant/40 hover:border-secondary/30" type="button">
+          Unit 1: Thinking Geographically
+        </button>
+<button class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-headline font-medium transition-all duration-200 transform hover:-translate-y-0.5 active:scale-95 bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface border border-outline-variant/40 hover:border-secondary/30" type="button">
+          Unit 2: Population
+        </button>
+<button class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-headline font-medium transition-all duration-200 transform hover:-translate-y-0.5 active:scale-95 bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface border border-outline-variant/40 hover:border-secondary/30" type="button">
+          Sources &amp; PDFs
+        </button>
+<button class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-headline font-medium transition-all duration-200 transform hover:-translate-y-0.5 active:scale-95 bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface border border-outline-variant/40 hover:border-secondary/30" type="button">
+          Flashcards
+        </button>
+<button class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-headline font-medium transition-all duration-200 transform hover:-translate-y-0.5 active:scale-95 bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface border border-outline-variant/40 hover:border-secondary/30" type="button">
+          Exam Review
+        </button>
+</div>
+</div>
+<!-- Main Desktop 3-Column Grid -->
+<div class="relative z-10 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch mb-12">
+<!-- Column 1: Unit 1 Card -->
+<div class="anim-fade-up anim-delay-5 interactive-card group relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-surface-container-lowest backdrop-blur-md hover:bg-surface-container-lowest border border-outline-variant/40 hover:border-secondary/40 shadow-sm hover:shadow-xl">
+<div class="absolute inset-0 rounded-2xl bg-gradient-to-b from-secondary/5 via-transparent to-transparent pointer-events-none transition-opacity duration-300 group-hover:opacity-100"></div>
+<div>
+<!-- Top Row: Progress Overline -->
+<div class="flex items-center justify-between gap-2 mb-4">
+<span class="text-[11px] font-label font-bold tracking-widest uppercase text-secondary">
+              CURRENT PROGRESS
+            </span>
+<span class="px-2.5 py-0.5 rounded-full text-xs font-label font-bold bg-secondary/10 text-secondary border border-secondary/20">
+              78%
+            </span>
+</div>
+<!-- Unit Title -->
+<h2 class="text-xl font-headline font-bold text-on-surface mb-4 leading-snug group-hover:text-secondary transition-colors duration-200">
+            Unit 1: Thinking Geographically
+          </h2>
+<!-- Visual Progress Gauge with Glow -->
+<div class="w-full mb-6">
+<div class="w-full h-2 rounded-full bg-surface-container-highest overflow-hidden p-0.5">
+<div class="progress-fill-unit1 h-full rounded-full bg-gradient-to-r from-secondary-container via-secondary to-secondary shadow-[0_0_10px_rgba(29,114,254,0.4)]"></div>
+</div>
+<div class="flex justify-between items-center text-[11px] font-label text-outline mt-2">
+<span>Diagnostic baseline: 65%</span>
+<span class="text-secondary font-medium">Mastery target: 85%</span>
+</div>
+</div>
+<!-- Topic Badges -->
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-2.5 py-1 rounded-lg text-xs font-body font-medium bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-all duration-200 cursor-default hover:scale-105 border border-outline-variant/20">
+              Fundamentals
+            </span>
+<span class="px-2.5 py-1 rounded-lg text-xs font-body font-medium bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-all duration-200 cursor-default hover:scale-105 border border-outline-variant/20">
+              Maps &amp; Data
+            </span>
+<span class="px-2.5 py-1 rounded-lg text-xs font-body font-medium bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-all duration-200 cursor-default hover:scale-105 border border-outline-variant/20">
+              Scale &amp; Space
+            </span>
+<span class="px-2.5 py-1 rounded-lg text-xs font-body font-medium bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-all duration-200 cursor-default hover:scale-105 border border-outline-variant/20">
+              GIS Analysis
+            </span>
+</div>
+</div>
+<!-- Footer / Action Row -->
+<div class="pt-4 mt-auto flex items-center justify-between border-t border-outline-variant/20 bg-surface-container-low/50 -mx-6 -mb-6 p-5 sm:p-6 rounded-b-2xl">
+<div class="flex items-center gap-2 text-xs font-medium text-secondary">
+<span class="material-symbols-outlined text-base">check_circle</span>
+<span class="text-on-surface-variant">14/18 Modules Done</span>
+</div>
+<button class="group/btn inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-surface-container-high hover:bg-secondary hover:text-on-secondary text-secondary font-headline font-semibold text-xs transition-all duration-200 shadow-sm active:scale-95 border border-outline-variant/30 hover:border-secondary" type="button">
+<span>Resume</span>
+<span class="material-symbols-outlined text-sm transform group-hover/btn:translate-x-1 transition-transform duration-200">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Column 2: Unit 2 Card -->
+<div class="anim-fade-up anim-delay-5 interactive-card group relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-surface-container-lowest backdrop-blur-md hover:bg-surface-container-lowest border border-outline-variant/40 hover:border-secondary/40 shadow-sm hover:shadow-xl">
+<div class="absolute inset-0 rounded-2xl bg-gradient-to-b from-primary/5 via-transparent to-transparent pointer-events-none transition-opacity duration-300 group-hover:opacity-100"></div>
+<div>
+<!-- Top Row: Progress Overline -->
+<div class="flex items-center justify-between gap-2 mb-4">
+<span class="text-[11px] font-label font-bold tracking-widest uppercase text-outline">
+              IN PROGRESS
+            </span>
+<span class="px-2.5 py-0.5 rounded-full text-xs font-label font-bold bg-primary-container/10 text-secondary border border-primary-container/20">
+              42%
+            </span>
+</div>
+<!-- Unit Title -->
+<h2 class="text-xl font-headline font-bold text-on-surface mb-4 leading-snug group-hover:text-secondary transition-colors duration-200">
+            Unit 2: Population &amp; Migration Patterns
+          </h2>
+<!-- Visual Progress Gauge -->
+<div class="w-full mb-6">
+<div class="w-full h-2 rounded-full bg-surface-container-highest overflow-hidden p-0.5">
+<div class="progress-fill-unit2 h-full rounded-full bg-gradient-to-r from-secondary-container to-secondary shadow-[0_0_10px_rgba(29,114,254,0.4)]"></div>
+</div>
+<div class="flex justify-between items-center text-[11px] font-label text-outline mt-2">
+<span>9/21 Topics reviewed</span>
+<span class="text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-error inline-block"></span>
+              4 overdue
+            </span>
+</div>
+</div>
+<!-- Topic Badges -->
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-2.5 py-1 rounded-lg text-xs font-body font-medium bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-all duration-200 cursor-default hover:scale-105 border border-outline-variant/20">
+              Demographics
+            </span>
+<span class="px-2.5 py-1 rounded-lg text-xs font-body font-medium bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-all duration-200 cursor-default hover:scale-105 border border-outline-variant/20">
+              Migration Flow
+            </span>
+<span class="px-2.5 py-1 rounded-lg text-xs font-body font-medium bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-all duration-200 cursor-default hover:scale-105 border border-outline-variant/20">
+              Population Growth
+            </span>
+<span class="px-2.5 py-1 rounded-lg text-xs font-body font-medium bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-all duration-200 cursor-default hover:scale-105 border border-outline-variant/20">
+              Malthusian Theory
+            </span>
+</div>
+</div>
+<!-- Footer / Action Row -->
+<div class="pt-4 mt-auto flex items-center justify-between border-t border-outline-variant/20 bg-surface-container-low/50 -mx-6 -mb-6 p-5 sm:p-6 rounded-b-2xl">
+<div class="flex items-center gap-2 text-xs font-medium text-tertiary">
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+<span class="text-on-surface-variant">Review scheduled tomorrow</span>
+</div>
+<button class="group/btn inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-surface-container-high hover:bg-secondary hover:text-on-secondary text-secondary font-headline font-semibold text-xs transition-all duration-200 shadow-sm active:scale-95 border border-outline-variant/30 hover:border-secondary" type="button">
+<span>Continue</span>
+<span class="material-symbols-outlined text-sm transform group-hover/btn:translate-x-1 transition-transform duration-200">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Column 3: Verified Sources & Practice Card -->
+<div class="anim-fade-up anim-delay-6 interactive-card relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-surface-container-lowest backdrop-blur-md shadow-sm border border-outline-variant/40 hover:border-secondary/40 hover:shadow-xl">
+<div>
+<!-- Header -->
+<div class="flex items-center justify-between gap-2 mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-lg">verified</span>
+<span class="text-xs font-headline font-bold text-on-surface uppercase tracking-wider">Sources</span>
+</div>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-label font-bold bg-secondary/10 text-secondary uppercase tracking-tight border border-secondary/20">
+              College Board Verified
+            </span>
+</div>
+<p class="text-xs text-on-surface-variant mb-4">
+            Official curriculum blueprints and test-maker citations linked to current course units.
+          </p>
+<!-- List of Document Items -->
+<div class="flex flex-col gap-2.5">
+<!-- Doc Item 1 -->
+<div class="group/doc flex items-center justify-between p-3 rounded-xl bg-surface-container-high/60 hover:bg-surface-container-high transition-all duration-200 transform hover:-translate-y-0.5 border border-outline-variant/20 hover:border-secondary/30">
+<div class="flex items-center gap-3 min-w-0 pr-2">
+<div class="w-8 h-8 rounded-lg bg-secondary/10 flex items-center justify-center shrink-0 text-secondary transition-transform duration-200 group-hover/doc:scale-110">
+<span class="material-symbols-outlined text-lg">description</span>
+</div>
+<div class="min-w-0">
+<h4 class="text-xs font-semibold text-on-surface truncate group-hover/doc:text-secondary transition-colors duration-200">
+                    College Board Verified PDF
+                  </h4>
+<p class="text-[10px] font-label text-outline truncate">Official Curriculum • 4.2 MB</p>
+</div>
+</div>
+<button class="shrink-0 p-2 rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-secondary transition-all duration-200 active:scale-90 border border-outline-variant/30" title="Download Curriculum" type="button">
+<span class="material-symbols-outlined text-base">download</span>
+</button>
+</div>
+<!-- Doc Item 2 -->
+<div class="group/doc flex items-center justify-between p-3 rounded-xl bg-surface-container-high/60 hover:bg-surface-container-high transition-all duration-200 transform hover:-translate-y-0.5 border border-outline-variant/20 hover:border-secondary/30">
+<div class="flex items-center gap-3 min-w-0 pr-2">
+<div class="w-8 h-8 rounded-lg bg-secondary/10 flex items-center justify-center shrink-0 text-secondary transition-transform duration-200 group-hover/doc:scale-110">
+<span class="material-symbols-outlined text-lg">menu_book</span>
+</div>
+<div class="min-w-0">
+<h4 class="text-xs font-semibold text-on-surface truncate group-hover/doc:text-secondary transition-colors duration-200">
+                    AP HUG Course Description
+                  </h4>
+<p class="text-[10px] font-label text-outline truncate">Standards &amp; Concepts • 2.8 MB</p>
+</div>
+</div>
+<button class="shrink-0 p-2 rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-secondary transition-all duration-200 active:scale-90 border border-outline-variant/30" title="Download Standards" type="button">
+<span class="material-symbols-outlined text-base">download</span>
+</button>
+</div>
+<!-- Interactive Item 3 -->
+<div class="group/doc flex items-center justify-between p-3 rounded-xl bg-surface-container-high/60 hover:bg-surface-container-high transition-all duration-200 transform hover:-translate-y-0.5 border border-outline-variant/20 hover:border-secondary/30">
+<div class="flex items-center gap-3 min-w-0 pr-2">
+<div class="w-8 h-8 rounded-lg bg-secondary/10 flex items-center justify-center shrink-0 text-secondary transition-transform duration-200 group-hover/doc:scale-110">
+<span class="material-symbols-outlined text-lg">quiz</span>
+</div>
+<div class="min-w-0">
+<h4 class="text-xs font-semibold text-on-surface truncate group-hover/doc:text-secondary transition-colors duration-200">
+                    Practice Exam Q&amp;A
+                  </h4>
+<p class="text-[10px] font-label text-outline truncate">60 Diagnostic Questions • Interactive</p>
+</div>
+</div>
+<button class="shrink-0 p-2 rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-secondary transition-all duration-200 active:scale-90 border border-outline-variant/30" title="Preview Exam" type="button">
+<span class="material-symbols-outlined text-base">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Quick Access Link -->
+<div class="mt-4 pt-3 flex items-center justify-between border-t border-outline-variant/20">
+<span class="text-[11px] font-label text-outline">Updated 2 days ago</span>
+<a class="group/link text-xs font-headline font-semibold text-secondary hover:text-secondary/80 inline-flex items-center gap-1 transition-colors duration-200" href="#">
+<span>Browse Library</span>
+<span class="material-symbols-outlined text-xs transform group-hover/link:translate-x-1 transition-transform duration-200">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Quick Stats & Study Pulse Dock -->
+<div class="anim-fade-up anim-delay-7 w-full max-w-4xl p-1 rounded-2xl bg-gradient-to-r from-surface-container-low via-surface-container to-surface-container-low border border-outline-variant/30 shadow-lg transition-all duration-300 hover:border-secondary/30 hover:shadow-xl">
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 px-6 py-4 rounded-xl bg-surface-container-lowest backdrop-blur-xl">
+<!-- Metric 1: Streak -->
+<div class="group flex items-center gap-3 w-full sm:w-auto cursor-default">
+<div class="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary transition-transform duration-200 group-hover:scale-110">
+<span class="text-lg select-none inline-block animate-bounce" style="animation-duration: 2.4s;">🔥</span>
+</div>
+<div>
+<div class="text-xs font-headline font-bold text-on-surface group-hover:text-secondary transition-colors">5 Day Streak</div>
+<div class="text-[11px] font-label text-outline">Personal best: 14 days</div>
+</div>
+</div>
+<div class="hidden sm:block w-px h-8 bg-surface-container-highest"></div>
+<!-- Metric 2: Target Exam -->
+<div class="group flex items-center gap-3 w-full sm:w-auto cursor-default">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-secondary transition-transform duration-200 group-hover:scale-110">
+<span class="material-symbols-outlined text-xl">event</span>
+</div>
+<div>
+<div class="text-xs font-headline font-bold text-on-surface group-hover:text-secondary transition-colors">Target Exam: May 6</div>
+<div class="text-[11px] font-label text-outline">AP Human Geography (68 days left)</div>
+</div>
+</div>
+<div class="hidden sm:block w-px h-8 bg-surface-container-highest"></div>
+<!-- Metric 3: Next AI Review -->
+<div class="group flex items-center gap-3 w-full sm:w-auto cursor-default">
+<div class="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary transition-transform duration-200 group-hover:scale-110">
+<span class="material-symbols-outlined text-xl">schedule</span>
+</div>
+<div>
+<div class="text-xs font-headline font-bold text-on-surface group-hover:text-secondary transition-colors flex items-center gap-1.5">
+  Next AI Review
+  <span class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span>
+</div>
+<div class="text-[11px] font-label text-secondary font-medium">Today at 5:00 PM (Spaced Repetition)</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive script for filter switching & input focus -->
+<script>
+    (function() {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterButtons.forEach(b => {
+            b.classList.remove('active', 'bg-secondary', 'text-on-secondary', 'shadow-[0_0_16px_rgba(29,114,254,0.3)]');
+            b.classList.add('bg-surface-container-high', 'text-on-surface-variant', 'border', 'border-outline-variant/40');
+          });
+          btn.classList.add('active', 'bg-secondary', 'text-on-secondary', 'shadow-[0_0_16px_rgba(29,114,254,0.3)]');
+          btn.classList.remove('bg-surface-container-high', 'text-on-surface-variant', 'border', 'border-outline-variant/40');
+        });
+      });
+
+      // Keyboard shortcut ⌘K listener
+      document.addEventListener('keydown', (e) => {
+        if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+          e.preventDefault();
+          const searchInput = document.getElementById('study-search');
+          if (searchInput) {
+            searchInput.focus();
+            searchInput.parentElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }
+      });
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest mt-24 py-10 border-t border-outline-variant/30"><div class="w-full px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-on-surface-variant"><div class="flex items-center gap-3"><span class="font-headline font-semibold text-on-surface">CourseLab</span><span>•</span><span>Interactive AP Study Workspace</span></div><div class="flex items-center gap-6"><a class="hover:text-on-surface transition-colors duration-200" href="#">Syllabus Alignments</a><a class="hover:text-on-surface transition-colors duration-200" href="#">Diagnostic Rubrics</a><a class="hover:text-on-surface transition-colors duration-200" href="#">Privacy Policy</a></div></div></footer></body></html>
