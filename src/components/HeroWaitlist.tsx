@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, X, Sparkles } from 'lucide-react';
+import { ArrowRight, X, Sparkles, Star } from 'lucide-react';
+import { GitHubStarButton } from './GitHubStarButton';
 
-export const HeroWaitlist: React.FC = () => {
+interface HeroWaitlistProps {
+  onOpenGitHubModal?: () => void;
+}
+
+export const HeroWaitlist: React.FC<HeroWaitlistProps> = ({ onOpenGitHubModal }) => {
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
 
   useEffect(() => {
@@ -71,10 +76,23 @@ export const HeroWaitlist: React.FC = () => {
     <section id="waitlist" className="pt-16 pb-20 md:pt-24 md:pb-28 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Centered Hero Header */}
       <div className="text-center max-w-4xl mx-auto flex flex-col items-center">
-        {/* Curricula Pill Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-xs font-mono text-[#1D72FE] font-semibold tracking-wide mb-6 shadow-xs">
-          <span className="w-2 h-2 rounded-full bg-[#1D72FE]" />
-          <span>College Board AP &amp; IB</span>
+        {/* Curricula & Open Source Pill Badges */}
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-xs font-mono text-[#1D72FE] font-semibold tracking-wide shadow-xs">
+            <span className="w-2 h-2 rounded-full bg-[#1D72FE]" />
+            <span>College Board AP &amp; IB</span>
+          </div>
+
+          <button
+            type="button"
+            onClick={onOpenGitHubModal}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 hover:bg-emerald-100/80 border border-emerald-200/80 text-xs font-mono text-emerald-800 font-semibold tracking-wide shadow-xs transition-all duration-150 cursor-pointer group"
+            title="CourseLab es Open Source. Haz clic para ver cómo conseguirlo."
+          >
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span>100% Open Source en GitHub</span>
+            <Star className="size-3 text-amber-500 fill-amber-400 group-hover:scale-125 transition-transform" />
+          </button>
         </div>
 
         {/* Catchy 1-Line Headline */}
@@ -87,16 +105,22 @@ export const HeroWaitlist: React.FC = () => {
           Official College Board and IB course frameworks, structured study notebooks, and seamless classroom synchronization — ready from day one.
         </p>
 
-        {/* Center CTA Button */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
+        {/* Center CTA Buttons (Waitlist + Star on GitHub) */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4 w-full max-w-lg">
           <button
             type="button"
             onClick={() => setIsWaitlistOpen(true)}
-            className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-base font-bold text-white bg-[#1D72FE] hover:bg-[#1558CC] shadow-lg shadow-[#1D72FE]/25 hover:shadow-xl hover:shadow-[#1D72FE]/35 transition-all duration-200 active:scale-95 group cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-base font-bold text-white bg-[#1D72FE] hover:bg-[#1558CC] shadow-lg shadow-[#1D72FE]/25 hover:shadow-xl hover:shadow-[#1D72FE]/35 transition-all duration-200 active:scale-95 group cursor-pointer"
           >
             <span>Join the Waitlist</span>
             <ArrowRight className="size-5 transition-transform duration-200 group-hover:translate-x-1" />
           </button>
+
+          <GitHubStarButton
+            variant="hero"
+            onOpenModal={onOpenGitHubModal}
+            className="w-full sm:w-auto justify-center"
+          />
         </div>
 
         {/* Reassurance note */}

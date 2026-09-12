@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { OpenSourceBanner } from './components/OpenSourceBanner';
 import { Navbar } from './components/Navbar';
 import { HeroWaitlist } from './components/HeroWaitlist';
 import { ProductShowcase } from './components/ProductShowcase';
@@ -10,6 +11,7 @@ import { ReviewsCarousel } from './components/ReviewsCarousel';
 import { CommunityDiscord } from './components/CommunityDiscord';
 import { Footer } from './components/Footer';
 import { LegalModal, LegalDocType } from './components/LegalModal';
+import { GitHubStarModal } from './components/GitHubStarModal';
 import { InteractiveGrid } from './components/InteractiveGrid';
 
 export default function App() {
@@ -17,9 +19,16 @@ export default function App() {
   const [isLegalOpen, setIsLegalOpen] = useState<boolean>(false);
   const [activeLegalDoc, setActiveLegalDoc] = useState<LegalDocType>('terms');
 
+  // GitHub Star / Open Source Modal State
+  const [isGitHubModalOpen, setIsGitHubModalOpen] = useState<boolean>(false);
+
   const handleOpenLegal = (doc: LegalDocType) => {
     setActiveLegalDoc(doc);
     setIsLegalOpen(true);
+  };
+
+  const handleOpenGitHubModal = () => {
+    setIsGitHubModalOpen(true);
   };
 
   return (
@@ -34,13 +43,16 @@ export default function App() {
         <div className="absolute top-[65%] left-[-10%] w-[600px] h-[600px] bg-sky-100/35 blur-[140px] rounded-full" />
       </div>
 
+      {/* ANNOUNCEMENT: Open Source GitHub Star Banner */}
+      <OpenSourceBanner onOpenModal={handleOpenGitHubModal} />
+
       {/* SECTION A: Sticky Glassmorphism Navbar */}
-      <Navbar />
+      <Navbar onOpenGitHubModal={handleOpenGitHubModal} />
 
       {/* Main Container */}
       <main className="relative z-10">
         {/* SECTION B: Hero Section & Official Tally Waitlist Intake Form */}
-        <HeroWaitlist />
+        <HeroWaitlist onOpenGitHubModal={handleOpenGitHubModal} />
 
         {/* SECTION C: Custom Showcase Frame (Mockup Container) */}
         <ProductShowcase />
@@ -65,7 +77,13 @@ export default function App() {
       </main>
 
       {/* SECTION I: Footer */}
-      <Footer onOpenLegal={handleOpenLegal} />
+      <Footer onOpenLegal={handleOpenLegal} onOpenGitHubModal={handleOpenGitHubModal} />
+
+      {/* GITHUB OPEN SOURCE & STAR MODAL: How to get CourseLab and star on GitHub */}
+      <GitHubStarModal
+        isOpen={isGitHubModalOpen}
+        onClose={() => setIsGitHubModalOpen(false)}
+      />
 
       {/* LEGAL MODAL: Terms of Service & Privacy Policy (FERPA & COPPA) */}
       <LegalModal

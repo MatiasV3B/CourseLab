@@ -5,6 +5,7 @@
 ### The First Interactive AI Notebook with Preloaded Official Curricula & Connected Classrooms
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/MatiasV3B/CourseLab?style=social)](https://github.com/MatiasV3B/CourseLab)
 [![Discord](https://img.shields.io/badge/Discord-Join%20Community-5865F2?logo=discord&logoColor=white)](https://discord.gg/DE96t7w4XJ)
 [![Status: Waitlist](https://img.shields.io/badge/Status-Beta%20Waitlist%20Active-1D72FE)](https://courselab.vercel.app)
 
@@ -57,8 +58,8 @@ Studying for advanced high school examinations (such as **Advanced Placement® (
 
 ```bash
 # 1. Clone the repository
-git clone [https://github.com/your-username/courselab.git](https://github.com/your-username/courselab.git)
-cd courselab
+git clone https://github.com/MatiasV3B/CourseLab.git
+cd CourseLab
 
 # 2. Install dependencies
 npm install

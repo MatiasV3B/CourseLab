@@ -1,9 +1,11 @@
 import React from 'react';
 import { CourseLabLogo } from './CourseLabLogo';
 import { LegalDocType } from './LegalModal';
+import { GitHubIcon } from './GitHubStarButton';
 
 interface FooterProps {
   onOpenLegal: (doc: LegalDocType) => void;
+  onOpenGitHubModal?: () => void;
 }
 
 const DiscordIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
@@ -12,7 +14,7 @@ const DiscordIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
   </svg>
 );
 
-export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
+export const Footer: React.FC<FooterProps> = ({ onOpenLegal, onOpenGitHubModal }) => {
   return (
     <footer className="border-t border-slate-200 bg-slate-50 py-14 relative z-10 text-xs text-slate-600">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -32,16 +34,26 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
             <div className="font-mono text-[11px] text-[#1D72FE] font-semibold">
               ACADEMIC YEAR 2026-2027 COHORT
             </div>
-            {/* Discord Community Button in Footer Brand */}
-            <div className="pt-2">
+            {/* GitHub & Discord Community Buttons in Footer Brand */}
+            <div className="pt-2 flex flex-wrap items-center gap-2.5">
+              <a
+                href="https://github.com/MatiasV3B/CourseLab"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-black text-white font-semibold text-xs transition-all duration-150 hover:scale-[1.02] active:scale-95 shadow-xs"
+              >
+                <GitHubIcon className="w-4 h-4" />
+                <span>Star on GitHub</span>
+                <span className="text-amber-400 font-mono">★</span>
+              </a>
               <a
                 href="https://discord.gg/DE96t7w4XJ"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-[#5865F2]/10 hover:bg-[#5865F2]/20 border border-[#5865F2]/20 text-[#5865F2] font-semibold text-xs transition-all duration-150 hover:scale-[1.02] active:scale-95"
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#5865F2]/10 hover:bg-[#5865F2]/20 border border-[#5865F2]/20 text-[#5865F2] font-semibold text-xs transition-all duration-150 hover:scale-[1.02] active:scale-95"
               >
                 <DiscordIcon className="w-4 h-4 fill-[#5865F2]" />
-                <span>Join Discord Community</span>
+                <span>Discord</span>
               </a>
             </div>
           </div>
@@ -56,6 +68,17 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
             <div><a href="#integrations" className="hover:text-[#1D72FE] transition-colors">Integrations</a></div>
             <div><a href="#pricing" className="hover:text-[#1D72FE] transition-colors">Pricing Matrix</a></div>
             <div><a href="#reviews" className="hover:text-[#1D72FE] transition-colors">Reviews</a></div>
+            <div>
+              <a 
+                href="https://github.com/MatiasV3B/CourseLab" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-flex items-center gap-1.5 hover:text-slate-900 transition-colors text-slate-600 font-medium"
+              >
+                <span>GitHub Repository</span>
+                <span className="text-[10px] px-1.5 py-0.2 rounded bg-emerald-100 text-emerald-800 font-semibold font-mono">Open Source</span>
+              </a>
+            </div>
             <div>
               <a 
                 href="https://discord.gg/DE96t7w4XJ" 
@@ -123,6 +146,16 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
             Copyright &copy; 2026 CourseLab, Inc. All rights reserved. Advanced Placement&reg; and AP&reg; are trademarks registered by the College Board, which is not affiliated with, and does not endorse, this product.
           </div>
           <div className="flex items-center gap-4 flex-wrap">
+            <a
+              href="https://github.com/MatiasV3B/CourseLab"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-slate-500 hover:text-slate-900 transition-colors"
+            >
+              <GitHubIcon className="w-3.5 h-3.5 fill-current" />
+              <span>github.com/MatiasV3B/CourseLab</span>
+            </a>
+            <span className="text-slate-300 hidden sm:inline">•</span>
             <a
               href="https://discord.gg/DE96t7w4XJ"
               target="_blank"
