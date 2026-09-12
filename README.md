@@ -75,7 +75,7 @@ Open http://localhost:3000 with your browser to view the application.
 🗺️ Project Roadmap
 [x] Phase 1 (Current): Landing page launch & Waitlist intake qualification.
 
-[ ] Phase 2: Core MVP development (Supabase database setup, NVIDIA API integration, 20 AP course ingestion).
+[ ] Phase 2: Core development pf the tool.
 
 [ ] Phase 3: Closed private beta rollouts with our Discord community cohort.
 
