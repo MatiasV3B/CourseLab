@@ -23,6 +23,9 @@ export const Navbar: React.FC = () => {
 
         {/* Smooth-scroll Navigation Links */}
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+          <a href="#about" className="hover:text-[#1D72FE] transition-colors duration-150">
+            About
+          </a>
           <a href="#how-it-works" className="hover:text-[#1D72FE] transition-colors duration-150">
             How It Works
           </a>

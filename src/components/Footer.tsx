@@ -62,6 +62,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
             <div className="font-mono text-[11px] text-slate-900 uppercase tracking-wider mb-2 font-bold">
               Platform
             </div>
+            <div><a href="#about" className="hover:text-[#1D72FE] transition-colors">About</a></div>
             <div><a href="#how-it-works" className="hover:text-[#1D72FE] transition-colors">How It Works</a></div>
             <div><a href="#why-courselab" className="hover:text-[#1D72FE] transition-colors">Why CourseLab</a></div>
             <div><a href="#integrations" className="hover:text-[#1D72FE] transition-colors">Integrations</a></div>

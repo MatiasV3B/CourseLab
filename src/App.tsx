@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { HeroWaitlist } from './components/HeroWaitlist';
+import { ProblemSolutionSection } from './components/ProblemSolutionSection';
 import { ProductShowcase } from './components/ProductShowcase';
 import { HowItWorks } from './components/HowItWorks';
 import ComparisonBlock from './components/ui/comparison-2';
@@ -41,6 +42,9 @@ export default function App() {
       <main className="relative z-10">
         {/* SECTION B: Hero Section & Official Tally Waitlist Intake Form */}
         <HeroWaitlist />
+
+        {/* SECTION B.2: What We Are Solving (Problem & CourseLab Solution for Teens & Parents) */}
+        <ProblemSolutionSection />
 
         {/* SECTION C: Custom Showcase Frame (Mockup Container) */}
         <ProductShowcase />
