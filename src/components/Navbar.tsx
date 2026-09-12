@@ -1,14 +1,9 @@
 import React from 'react';
 import { CourseLabLogo } from './CourseLabLogo';
-import { GitHubStarButton } from './GitHubStarButton';
 
-interface NavbarProps {
-  onOpenGitHubModal?: () => void;
-}
-
-export const Navbar: React.FC<NavbarProps> = ({ onOpenGitHubModal }) => {
+export const Navbar: React.FC = () => {
   return (
-    <header className="sticky top-0 z-40 w-full backdrop-blur-md bg-white/90 border-b border-slate-200/80 transition-all shadow-sm">
+    <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-white/90 border-b border-slate-200/80 transition-all shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Brand Logo & Wordmark */}
         <a href="#" className="flex items-center gap-3.5 group">
@@ -48,12 +43,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenGitHubModal }) => {
           </a>
         </nav>
 
-        {/* Right Action: GitHub Star & Waitlist Pill CTA */}
-        <div className="flex items-center gap-3 sm:gap-4">
-          <GitHubStarButton variant="navbar" onOpenModal={onOpenGitHubModal} />
+        {/* Right Action: Waitlist Pill CTA */}
+        <div className="flex items-center gap-4">
           <a
             href="#waitlist"
-            className="inline-flex items-center justify-center px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium text-white bg-[#1D72FE] hover:bg-[#1558CC] shadow-md shadow-[#1D72FE]/25 hover:shadow-[#1D72FE]/35 transition-all duration-200 active:scale-95 font-semibold whitespace-nowrap"
+            className="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-medium text-white bg-[#1D72FE] hover:bg-[#1558CC] shadow-md shadow-[#1D72FE]/25 hover:shadow-[#1D72FE]/35 transition-all duration-200 active:scale-95 font-semibold"
           >
             Join the Waitlist
           </a>

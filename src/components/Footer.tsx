@@ -5,7 +5,6 @@ import { GitHubIcon } from './GitHubStarButton';
 
 interface FooterProps {
   onOpenLegal: (doc: LegalDocType) => void;
-  onOpenGitHubModal?: () => void;
 }
 
 const DiscordIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
@@ -14,7 +13,7 @@ const DiscordIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
   </svg>
 );
 
-export const Footer: React.FC<FooterProps> = ({ onOpenLegal, onOpenGitHubModal }) => {
+export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
   return (
     <footer className="border-t border-slate-200 bg-slate-50 py-14 relative z-10 text-xs text-slate-600">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -68,17 +67,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal, onOpenGitHubModal }
             <div><a href="#integrations" className="hover:text-[#1D72FE] transition-colors">Integrations</a></div>
             <div><a href="#pricing" className="hover:text-[#1D72FE] transition-colors">Pricing Matrix</a></div>
             <div><a href="#reviews" className="hover:text-[#1D72FE] transition-colors">Reviews</a></div>
-            <div>
-              <a 
-                href="https://github.com/MatiasV3B/CourseLab" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="inline-flex items-center gap-1.5 hover:text-slate-900 transition-colors text-slate-600 font-medium"
-              >
-                <span>GitHub Repository</span>
-                <span className="text-[10px] px-1.5 py-0.2 rounded bg-emerald-100 text-emerald-800 font-semibold font-mono">Open Source</span>
-              </a>
-            </div>
             <div>
               <a 
                 href="https://discord.gg/DE96t7w4XJ" 
