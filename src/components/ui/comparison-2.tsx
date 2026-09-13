@@ -80,7 +80,7 @@ export default function ComparisonBlock({
   othersPoints = defaultOthersPoints,
 }: ComparisonBlockProps) {
   return (
-    <section id="why-courselab" className="flex w-full items-center justify-center bg-background px-4 sm:px-6 py-20 text-foreground border-t border-border">
+    <section id="why-courselab" className="flex w-full items-center justify-center px-4 sm:px-6 py-20 text-foreground border-t border-slate-200 relative z-10">
       <div className="mx-auto w-full max-w-5xl">
         <div className="mb-12 text-center">
           <Badge variant="outline" className="mb-3 px-3 py-1 font-mono text-xs text-primary border-primary/30 bg-primary/5">

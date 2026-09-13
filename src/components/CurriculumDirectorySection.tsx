@@ -245,12 +245,12 @@ const COURSES_CATALOG: CourseItem[] = [
 
 export const CurriculumDirectorySection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<
-    'all' | 'stem-sciences' | 'math-computing' | 'history-social' | 'languages-humanities'
+    'stem-sciences' | 'math-computing' | 'history-social' | 'languages-humanities'
   >('stem-sciences');
   const [searchQuery, setSearchQuery] = useState('');
 
   const filteredCourses = COURSES_CATALOG.filter((course) => {
-    const matchesCategory = activeCategory === 'all' || course.category === activeCategory;
+    const matchesCategory = searchQuery !== '' || course.category === activeCategory;
     const matchesSearch =
       searchQuery === '' ||
       course.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -287,7 +287,6 @@ export const CurriculumDirectorySection: React.FC = () => {
             { key: 'math-computing', label: 'Math & Computing (6)' },
             { key: 'history-social', label: 'History & Social Sciences (6)' },
             { key: 'languages-humanities', label: 'Languages & English (2)' },
-            { key: 'all', label: 'All 20 Courses' },
           ].map((tab) => (
             <button
               key={tab.key}

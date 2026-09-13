@@ -15,7 +15,7 @@ const DiscordIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
 
 export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
   return (
-    <footer className="border-t border-slate-200 bg-slate-50 py-14 relative z-10 text-xs text-slate-600">
+    <footer className="border-t border-slate-200 py-14 relative z-10 text-xs text-slate-600">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
           

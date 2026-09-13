@@ -54,7 +54,7 @@ export const IntegrationsHub: React.FC = () => {
   return (
     <section
       id="integrations"
-      className="py-20 md:py-32 border-t border-border bg-background text-foreground"
+      className="py-20 md:py-32 border-t border-slate-200 text-foreground relative z-10"
     >
       <div className="container mx-auto max-w-5xl px-4 sm:px-6">
         <div className="text-center max-w-3xl mx-auto">

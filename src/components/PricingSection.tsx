@@ -168,7 +168,7 @@ export const PricingSection: React.FC = () => {
       : schoolPlans;
 
   return (
-    <section id="pricing" className="py-24 sm:py-32 border-t border-border bg-background text-foreground">
+    <section id="pricing" className="py-24 sm:py-32 border-t border-slate-200 text-foreground relative z-10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-4 text-center mb-10">
           <Badge variant="outline" className="px-3 py-1 font-mono text-xs text-primary border-primary/30 bg-primary/5">
