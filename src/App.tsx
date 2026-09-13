@@ -67,14 +67,14 @@ export default function App() {
         {/* SECTION H: 1-Click Integrations Hub (NotebookLM, Classroom, Drive) */}
         <IntegrationsHub />
 
-        {/* SECTION I: Frequently Asked Questions (FAQ with Schema.org alignment) */}
-        <FAQSection />
-
-        {/* SECTION J: Transparent Pricing Section */}
+        {/* SECTION I: Transparent Pricing Section */}
         <PricingSection />
 
         {/* REVIEWS SECTION: Testimonial Carousel with Student & Teacher Portraits */}
         <ReviewsCarousel />
+
+        {/* SECTION J: Frequently Asked Questions (FAQ with Schema.org alignment) */}
+        <FAQSection />
 
         {/* SECTION K: Official Discord Community Banner */}
         <CommunityDiscord />

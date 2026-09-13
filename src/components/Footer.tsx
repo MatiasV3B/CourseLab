@@ -69,8 +69,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
             <div><a href="#why-courselab" className="hover:text-[#1D72FE] transition-colors">Why CourseLab</a></div>
             <div><a href="#integrations" className="hover:text-[#1D72FE] transition-colors">Integrations</a></div>
             <div><a href="#pricing" className="hover:text-[#1D72FE] transition-colors">Pricing Matrix</a></div>
-            <div><a href="#faq" className="hover:text-[#1D72FE] transition-colors">FAQ</a></div>
             <div><a href="#reviews" className="hover:text-[#1D72FE] transition-colors">Reviews</a></div>
+            <div><a href="#faq" className="hover:text-[#1D72FE] transition-colors">FAQ</a></div>
             <div>
               <a 
                 href="https://discord.gg/DE96t7w4XJ" 
