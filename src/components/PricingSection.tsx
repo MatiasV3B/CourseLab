@@ -1,13 +1,24 @@
 import React, { useState } from 'react';
-import { Check, Clock, Sparkles } from 'lucide-react';
+import { Check, Clock, Sparkles, Users } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 
-export const PricingSection: React.FC = () => {
-  const [pricingRole, setPricingRole] = useState<'student' | 'teacher'>('student');
+interface PricingPlan {
+  name: string;
+  price: string;
+  period: string;
+  seats?: string;
+  description: string;
+  badge: string | null;
+  isFeatured: boolean;
+  features: string[];
+}
 
-  const studentPlans = [
+export const PricingSection: React.FC = () => {
+  const [pricingRole, setPricingRole] = useState<'student' | 'teacher' | 'school'>('student');
+
+  const studentPlans: PricingPlan[] = [
     {
       name: 'Student Starter',
       price: '0',
@@ -58,7 +69,7 @@ export const PricingSection: React.FC = () => {
     },
   ];
 
-  const teacherPlans = [
+  const teacherPlans: PricingPlan[] = [
     {
       name: 'Teacher Free',
       price: '0',
@@ -78,8 +89,8 @@ export const PricingSection: React.FC = () => {
       name: 'Teacher Plus',
       price: '10',
       period: '/mo',
-      description: 'Ideal for teachers managing multiple course sections.',
-      badge: 'Department Choice',
+      description: 'Ideal for individual teachers managing multiple course sections.',
+      badge: 'Teacher Choice',
       isFeatured: true,
       features: [
         '7 classrooms',
@@ -91,10 +102,10 @@ export const PricingSection: React.FC = () => {
       ],
     },
     {
-      name: 'School Pro',
+      name: 'Teacher Pro',
       price: '25',
       period: '/mo',
-      description: 'Unlimited power for high school departments and leaders.',
+      description: 'Unlimited power for high school educators and AP/IB department leads.',
       badge: null,
       isFeatured: false,
       features: [
@@ -103,11 +114,58 @@ export const PricingSection: React.FC = () => {
         '50 graphs / month',
         'AI-generated student improvement plans',
         'Clean PDF & editable Word (.docx)',
+        'Priority curriculum support',
       ],
     },
   ];
 
-  const currentPlans = pricingRole === 'student' ? studentPlans : teacherPlans;
+  const schoolPlans: PricingPlan[] = [
+    {
+      name: 'School Plus',
+      price: '10',
+      period: '/seat/mo',
+      seats: 'Up to 50 seats',
+      description: 'Designed for academic departments and grade-level cohorts up to 50 seats.',
+      badge: 'Department Choice',
+      isFeatured: true,
+      features: [
+        'Up to 50 seats maximum',
+        'Same per-seat rate as Teacher Plus ($10/seat)',
+        'All Teacher Plus capabilities included',
+        'Centralized department admin dashboard',
+        'Shared exam bank & curriculum folders',
+        'Anti-cheating exam generator (A/B/C)',
+        'Department-level diagnostic analytics',
+        'Clean PDF & editable Word (.docx) export',
+      ],
+    },
+    {
+      name: 'School Pro',
+      price: '25',
+      period: '/seat/mo',
+      seats: 'Up to 150 seats',
+      description: 'Comprehensive institutional deployment for high schools and academies up to 150 seats.',
+      badge: null,
+      isFeatured: false,
+      features: [
+        'Up to 150 seats maximum',
+        'Same per-seat rate as Teacher Pro ($25/seat)',
+        'All Teacher Pro capabilities included',
+        'Unlimited classrooms & exam generation',
+        'Full LMS integration (Canvas & Google Classroom)',
+        'School-wide diagnostic AP & IB score projections',
+        'Enterprise district data isolation & FERPA compliance',
+        'Dedicated onboarding & faculty training',
+      ],
+    },
+  ];
+
+  const currentPlans =
+    pricingRole === 'student'
+      ? studentPlans
+      : pricingRole === 'teacher'
+      ? teacherPlans
+      : schoolPlans;
 
   return (
     <section id="pricing" className="py-24 sm:py-32 border-t border-border bg-background text-foreground">
@@ -123,23 +181,27 @@ export const PricingSection: React.FC = () => {
             No hidden fees, no credit card required to start, and full district data isolation.
           </p>
 
-          {/* Interactive Role Toggle with animated sliding pill */}
-          <div className="mt-3 relative inline-flex p-1.5 rounded-2xl bg-slate-100 border border-slate-200 shadow-inner">
+          {/* Interactive Role Toggle with 3 distinct categories */}
+          <div className="mt-3 relative inline-flex p-1.5 rounded-2xl bg-slate-100 border border-slate-200 shadow-inner w-full sm:w-auto min-w-[320px] sm:min-w-[440px]">
             {/* Smooth Sliding Pill */}
             <div
-              className={cn(
-                "absolute top-1.5 bottom-1.5 rounded-xl bg-white shadow-md border border-slate-200/80 transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] pointer-events-none",
-                pricingRole === 'student'
-                  ? "left-1.5 w-[calc(50%-6px)]"
-                  : "left-[calc(50%+3px)] w-[calc(50%-6px)]"
-              )}
+              className="absolute top-1.5 bottom-1.5 rounded-xl bg-white shadow-md border border-slate-200/80 transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] pointer-events-none"
+              style={{
+                left:
+                  pricingRole === 'student'
+                    ? '6px'
+                    : pricingRole === 'teacher'
+                    ? 'calc(33.333% + 2px)'
+                    : 'calc(66.666% - 2px)',
+                width: 'calc(33.333% - 4px)',
+              }}
             />
             <button
               onClick={() => setPricingRole('student')}
               className={cn(
-                'relative z-10 px-6 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-colors duration-200',
+                'relative z-10 flex-1 px-3 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-colors duration-200 text-center whitespace-nowrap',
                 pricingRole === 'student'
-                  ? 'text-slate-900'
+                  ? 'text-slate-900 font-bold'
                   : 'text-slate-500 hover:text-slate-900'
               )}
             >
@@ -148,13 +210,24 @@ export const PricingSection: React.FC = () => {
             <button
               onClick={() => setPricingRole('teacher')}
               className={cn(
-                'relative z-10 px-6 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-colors duration-200',
+                'relative z-10 flex-1 px-3 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-colors duration-200 text-center whitespace-nowrap',
                 pricingRole === 'teacher'
-                  ? 'text-slate-900'
+                  ? 'text-slate-900 font-bold'
                   : 'text-slate-500 hover:text-slate-900'
               )}
             >
-              For Teachers &amp; Schools
+              For Teachers
+            </button>
+            <button
+              onClick={() => setPricingRole('school')}
+              className={cn(
+                'relative z-10 flex-1 px-3 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-colors duration-200 text-center whitespace-nowrap',
+                pricingRole === 'school'
+                  ? 'text-slate-900 font-bold'
+                  : 'text-slate-500 hover:text-slate-900'
+              )}
+            >
+              For Schools
             </button>
           </div>
 
@@ -170,10 +243,15 @@ export const PricingSection: React.FC = () => {
           </div>
         </div>
 
-        {/* 3 Pricing Cards Grid with Animated Keyframe Switch */}
+        {/* Pricing Cards Grid with Animated Keyframe Switch (3 cards for student/teacher, 2 cards for school) */}
         <div
           key={pricingRole}
-          className="animate-card-switch grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch max-w-6xl mx-auto pt-6"
+          className={cn(
+            'animate-card-switch grid gap-6 lg:gap-8 items-stretch mx-auto pt-6',
+            currentPlans.length === 2
+              ? 'grid-cols-1 md:grid-cols-2 max-w-4xl'
+              : 'grid-cols-1 md:grid-cols-3 max-w-6xl'
+          )}
         >
           {currentPlans.map((plan) => (
             <div
@@ -196,11 +274,21 @@ export const PricingSection: React.FC = () => {
               )}
 
               <div>
-                <div className={cn(
-                  'text-xs font-mono uppercase tracking-wider font-semibold mb-2',
-                  plan.isFeatured ? 'text-[#1D72FE]' : 'text-muted-foreground'
-                )}>
-                  {plan.name}
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <div
+                    className={cn(
+                      'text-xs font-mono uppercase tracking-wider font-semibold',
+                      plan.isFeatured ? 'text-[#1D72FE]' : 'text-muted-foreground'
+                    )}
+                  >
+                    {plan.name}
+                  </div>
+                  {plan.seats && (
+                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-blue-50 text-[#1D72FE] border border-blue-200/80">
+                      <Users className="size-3" />
+                      {plan.seats}
+                    </span>
+                  )}
                 </div>
 
                 <div className="flex items-baseline gap-1 mb-3">
@@ -232,7 +320,7 @@ export const PricingSection: React.FC = () => {
                 </ul>
               </div>
 
-              {/* Status Indicator (Replaces buttons as requested) */}
+              {/* Status Indicator (Coming Soon) */}
               <div className="mt-8 pt-4 border-t border-border">
                 <div
                   className={cn(
