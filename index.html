@@ -3,9 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CourseLab — AI Interactive Notebook for AP &amp; IB Courses</title>
-    <meta name="description" content="The first interactive notebook with preloaded courses and AI connected classrooms for Advanced Placement (AP) and IB courses." />
-    
+    <title>CourseLab — AI Interactive Study Notebook for AP &amp; IB Exams | Official Curricula Workspace</title>
+    <meta name="description" content="The AI-powered interactive study notebook engineered for AP® and IB® Diploma success. Featuring preloaded College Board curricula, zero-hallucination Socratic AI tutoring, active recall quizzes, and transparent weekly parent diagnostic score projections." />
+    <meta name="keywords" content="AP exam prep, IB Diploma study notebook, College Board curricula, AP Biology study guide, AP Calculus BC notes, Socratic AI tutor, active recall notebook, parent score projections, FERPA compliant AI, anti-cheating exam generator, AP US History DBQ, high school study workspace" />
+    <meta name="author" content="CourseLab" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://courselab.app/" />
+
+    <!-- Open Graph / Facebook / LinkedIn / Discord -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://courselab.app/" />
+    <meta property="og:title" content="CourseLab — AI Interactive Study Notebook for AP &amp; IB Exams" />
+    <meta property="og:description" content="Preloaded official College Board AP &amp; IB curricula, zero-hallucination Socratic AI tutoring, active retrieval quizzes, and transparent weekly parent score projections." />
+    <meta property="og:image" content="/courselab-social-preview.png" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="640" />
+    <meta property="og:image:alt" content="CourseLab — Interactive AI Study Notebook for AP &amp; IB Curricula" />
+    <meta property="og:site_name" content="CourseLab" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://courselab.app/" />
+    <meta name="twitter:title" content="CourseLab — AI Interactive Study Notebook for AP &amp; IB Exams" />
+    <meta name="twitter:description" content="Study notebook engineered for AP &amp; IB success: official frameworks, grounded Socratic AI, active quizzes, and parent score projections." />
+    <meta name="twitter:image" content="/courselab-social-preview.png" />
+
     <!-- Google Fonts: Plus Jakarta Sans, Inter, JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,6 +38,105 @@
     <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png?v=3" />
     <link rel="icon" type="image/png" sizes="128x128" href="/favicon.png?v=3" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png?v=3" />
+
+    <!-- Schema.org JSON-LD Structured Data for High Google Visibility -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://courselab.app/#software",
+          "name": "CourseLab",
+          "applicationCategory": "EducationalApplication",
+          "operatingSystem": "Web, iOS, Android, macOS, Windows",
+          "url": "https://courselab.app",
+          "description": "Interactive AI-powered study notebook preloaded with official College Board AP and IB Diploma curricula, zero-hallucination Socratic AI tutoring, and weekly parent score projection reports.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          },
+          "screenshot": "https://courselab.app/courselab-social-preview.png"
+        },
+        {
+          "@type": "EducationalOrganization",
+          "@id": "https://courselab.app/#organization",
+          "name": "CourseLab",
+          "url": "https://courselab.app",
+          "logo": "https://courselab.app/logo.png",
+          "sameAs": [
+            "https://github.com/MatiasV3B/CourseLab",
+            "https://discord.gg/DE96t7w4XJ"
+          ],
+          "description": "Educational technology platform providing curriculum-aligned interactive notebooks and connected classroom tools for advanced high school students and teachers."
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://courselab.app/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is CourseLab and how does it differ from Quizlet, Khan Academy, or ChatGPT?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Unlike isolated flashcard decks or generic chatbots that hallucinate false citations, CourseLab is a unified interactive study workspace preloaded with official College Board AP® and IB® Diploma frameworks. Students don’t start with blank documents or manually uploaded PDFs; our Socratic AI Tutor guides students using exact syllabus citations, active recall practice, and structured note outlines mapped directly to official scoring rubrics."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which Advanced Placement (AP®) and International Baccalaureate (IB®) courses are supported?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "CourseLab launches with full unit-by-unit frameworks for over 20 courses including AP Biology, AP Calculus AB & BC, AP Chemistry, AP United States History (APUSH), AP World History: Modern, AP Human Geography, AP European History, AP Psychology, AP US Government & Politics, AP English Language, and IB Mathematics: Analysis & Approaches (HL/SL)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does CourseLab ensure AI zero hallucinations in complex STEM and History curricula?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "CourseLab utilizes a deterministic Retrieval-Augmented Generation (RAG) architecture grounded strictly in official Course and Exam Descriptions (CED), textbook standards, and past exam scoring rubrics. The AI does not guess dates, invent mathematical derivatives, or hallucinate citations; every explanation provides verifiable page-level references."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does the Parent Diagnostic Score Projection work?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Parents receive transparent weekly email summaries detailing their teen’s mastery progress across each course unit. CourseLab’s algorithmic model analyzes active retrieval performance to project expected official AP exam scores (from 1 to 5) and IB marks (from 1 to 7), providing peace of mind and pinpointing weak units months in advance."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is CourseLab compliant with student privacy laws like FERPA and COPPA?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. CourseLab maintains strict, enterprise-grade data privacy compliance with both FERPA and COPPA. Student notebooks, classroom queries, and diagnostic performance metrics are strictly isolated, encrypted in transit and at rest, and are never used to train public or commercial generative models."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can teachers use CourseLab for assignments and anti-cheating exam generation?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Teachers can synchronize student rosters via Google Classroom, Canvas LMS, and Google Drive in 1 click. CourseLab allows educators to push curated reading modules and automatically generate shuffled, randomized exam variants (Versions A, B, and C) with comprehensive grading keys."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does achieving a qualifying score (3, 4, or 5) save money on college tuition?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most universities grant 3 to 8 college credits for scores of 3, 4, or 5 on AP exams and 5, 6, or 7 on IB Higher Level exams. Each passed exam can exempt students from an introductory semester course, saving families between $1,500 and $4,500 per course in university tuition."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body class="bg-[#F8FAFC] text-slate-900 selection:bg-[#1D72FE] selection:text-white font-sans antialiased overflow-x-hidden">
     <div id="root"></div>

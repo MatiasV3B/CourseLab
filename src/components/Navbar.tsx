@@ -22,9 +22,12 @@ export const Navbar: React.FC = () => {
         </a>
 
         {/* Smooth-scroll Navigation Links */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+        <nav className="hidden md:flex items-center gap-6 lg:gap-7 text-sm font-medium text-slate-600">
           <a href="#about" className="hover:text-[#1D72FE] transition-colors duration-150">
             About
+          </a>
+          <a href="#curricula" className="hover:text-[#1D72FE] transition-colors duration-150">
+            Curricula
           </a>
           <a href="#how-it-works" className="hover:text-[#1D72FE] transition-colors duration-150">
             How It Works
@@ -32,14 +35,11 @@ export const Navbar: React.FC = () => {
           <a href="#why-courselab" className="hover:text-[#1D72FE] transition-colors duration-150">
             Why CourseLab
           </a>
-          <a href="#integrations" className="hover:text-[#1D72FE] transition-colors duration-150">
-            Integrations
-          </a>
           <a href="#pricing" className="hover:text-[#1D72FE] transition-colors duration-150">
             Pricing
           </a>
-          <a href="#reviews" className="hover:text-[#1D72FE] transition-colors duration-150">
-            Reviews
+          <a href="#faq" className="hover:text-[#1D72FE] transition-colors duration-150">
+            FAQ
           </a>
           <a href="#community" className="hover:text-[#1D72FE] transition-colors duration-150">
             Community

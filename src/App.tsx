@@ -3,10 +3,13 @@ import { Navbar } from './components/Navbar';
 import { HeroWaitlist } from './components/HeroWaitlist';
 import { ProblemSolutionSection } from './components/ProblemSolutionSection';
 import { ProductShowcase } from './components/ProductShowcase';
+import { CurriculumDirectorySection } from './components/CurriculumDirectorySection';
+import { LearningEngineSection } from './components/LearningEngineSection';
 import { HowItWorks } from './components/HowItWorks';
 import ComparisonBlock from './components/ui/comparison-2';
 import { IntegrationsHub } from './components/IntegrationsHub';
 import { PricingSection } from './components/PricingSection';
+import { FAQSection } from './components/FAQSection';
 import { ReviewsCarousel } from './components/ReviewsCarousel';
 import { CommunityDiscord } from './components/CommunityDiscord';
 import { Footer } from './components/Footer';
@@ -49,22 +52,31 @@ export default function App() {
         {/* SECTION C: Custom Showcase Frame (Mockup Container) */}
         <ProductShowcase />
 
-        {/* SECTION D: How It Works in 4 Steps */}
+        {/* SECTION D: Official AP & IB Curricula Directory */}
+        <CurriculumDirectorySection />
+
+        {/* SECTION E: The CourseLab Learning Engine (Pedagogy & Architecture) */}
+        <LearningEngineSection />
+
+        {/* SECTION F: How It Works in 4 Steps */}
         <HowItWorks />
 
-        {/* SECTION E: Competitive Differentiation Block ("Why CourseLab") */}
+        {/* SECTION G: Competitive Differentiation Block ("Why CourseLab") */}
         <ComparisonBlock />
 
-        {/* SECTION F: 1-Click Integrations Hub (NotebookLM, Classroom, Drive) */}
+        {/* SECTION H: 1-Click Integrations Hub (NotebookLM, Classroom, Drive) */}
         <IntegrationsHub />
 
-        {/* SECTION G: Transparent Pricing Section */}
+        {/* SECTION I: Frequently Asked Questions (FAQ with Schema.org alignment) */}
+        <FAQSection />
+
+        {/* SECTION J: Transparent Pricing Section */}
         <PricingSection />
 
         {/* REVIEWS SECTION: Testimonial Carousel with Student & Teacher Portraits */}
         <ReviewsCarousel />
 
-        {/* SECTION H: Official Discord Community Banner */}
+        {/* SECTION K: Official Discord Community Banner */}
         <CommunityDiscord />
       </main>
 
