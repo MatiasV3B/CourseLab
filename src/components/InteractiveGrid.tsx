@@ -48,9 +48,27 @@ export const InteractiveGrid: React.FC = () => {
       }, 600);
     };
 
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches && e.touches.length > 0) {
+        targetMouseX = e.touches[0].clientX;
+        targetMouseY = e.touches[0].clientY;
+        isMouseActive = true;
+        if (mouseLeaveTimeout) clearTimeout(mouseLeaveTimeout);
+      }
+    };
+
+    const handleTouchEnd = () => {
+      mouseLeaveTimeout = window.setTimeout(() => {
+        isMouseActive = false;
+      }, 800);
+    };
+
     window.addEventListener('resize', handleResize);
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
     document.addEventListener('mouseleave', handleMouseLeave);
+    window.addEventListener('touchstart', handleTouchMove, { passive: true });
+    window.addEventListener('touchmove', handleTouchMove, { passive: true });
+    window.addEventListener('touchend', handleTouchEnd, { passive: true });
 
     const render = () => {
       // Clock for continuous oscillation (baja y sube en ciclo suave)
@@ -212,6 +230,9 @@ export const InteractiveGrid: React.FC = () => {
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseleave', handleMouseLeave);
+      window.removeEventListener('touchstart', handleTouchMove);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchend', handleTouchEnd);
       if (mouseLeaveTimeout) clearTimeout(mouseLeaveTimeout);
     };
   }, []);

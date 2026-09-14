@@ -91,7 +91,7 @@ export const LearningEngineSection: React.FC = () => {
           return (
             <div
               key={pillar.title}
-              className={`rounded-3xl bg-white border p-8 sm:p-9 shadow-sm hover:shadow-xl transition-all duration-200 flex flex-col justify-between relative overflow-hidden ${pillar.accentColor}`}
+              className={`rounded-3xl bg-white border p-6 sm:p-8 md:p-9 shadow-sm hover:shadow-xl transition-all duration-200 flex flex-col justify-between relative overflow-hidden ${pillar.accentColor}`}
             >
               <div>
                 {/* Pillar Header Badge */}
@@ -129,7 +129,7 @@ export const LearningEngineSection: React.FC = () => {
               </div>
 
               {/* Card Footer Tag */}
-              <div className="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-500">
+              <div className="mt-8 pt-4 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[11px] font-mono text-slate-500">
                 <span className="flex items-center gap-1">
                   <Lock className="size-3 text-emerald-600 inline" /> FERPA Aligned · Zero Public AI Training
                 </span>

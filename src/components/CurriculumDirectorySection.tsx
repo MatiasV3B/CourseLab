@@ -281,24 +281,25 @@ export const CurriculumDirectorySection: React.FC = () => {
       {/* Filter Tabs and Search Controls */}
       <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-10 pb-6 border-b border-slate-200">
         {/* Category Switcher Tabs: 6 in 1st, 6 in 2nd, 6 in 3rd, 2 in 4th */}
-        <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
+        <div className="flex items-center gap-2 w-full md:w-auto overflow-x-auto pb-2 md:pb-0 scrollbar-none touch-pan-x">
           {[
-            { key: 'stem-sciences', label: 'STEM & Sciences (6)' },
-            { key: 'math-computing', label: 'Math & Computing (6)' },
-            { key: 'history-social', label: 'History & Social Sciences (6)' },
-            { key: 'languages-humanities', label: 'Languages & English (2)' },
+            { key: 'stem-sciences', label: 'STEM & Sciences (6)', shortLabel: 'STEM (6)' },
+            { key: 'math-computing', label: 'Math & Computing (6)', shortLabel: 'Math (6)' },
+            { key: 'history-social', label: 'History & Social Sciences (6)', shortLabel: 'History (6)' },
+            { key: 'languages-humanities', label: 'Languages & English (2)', shortLabel: 'Languages (2)' },
           ].map((tab) => (
             <button
               key={tab.key}
               type="button"
               onClick={() => setActiveCategory(tab.key as any)}
-              className={`px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-150 cursor-pointer ${
+              className={`px-3.5 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-150 cursor-pointer whitespace-nowrap flex-shrink-0 ${
                 activeCategory === tab.key
                   ? 'bg-[#1D72FE] text-white shadow-md shadow-[#1D72FE]/25'
                   : 'bg-white hover:bg-slate-100 text-slate-600 border border-slate-200'
               }`}
             >
-              {tab.label}
+              <span className="sm:hidden">{tab.shortLabel}</span>
+              <span className="hidden sm:inline">{tab.label}</span>
             </button>
           ))}
         </div>

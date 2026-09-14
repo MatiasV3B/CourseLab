@@ -117,6 +117,31 @@ export const ReviewsCarousel: React.FC = () => {
     setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
   };
 
+  // Touch Swipe Gesture Handlers for Mobile
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+    setIsPaused(true);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    setIsPaused(false);
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    if (distance > 45) {
+      handleNext();
+    } else if (distance < -45) {
+      handlePrev();
+    }
+  };
+
   return (
     <section id="reviews" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-200">
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
@@ -155,11 +180,14 @@ export const ReviewsCarousel: React.FC = () => {
         </div>
       </div>
 
-      {/* Carousel Container with Smooth Sliding Track */}
+      {/* Carousel Container with Smooth Sliding Track & Mobile Touch Swipe */}
       <div
-        className="relative overflow-hidden -mx-2 px-2 py-4"
+        className="relative overflow-hidden -mx-2 px-2 py-4 select-none touch-pan-y"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
       >
         <div
           className="flex transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] gap-6"

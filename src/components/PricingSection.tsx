@@ -182,7 +182,7 @@ export const PricingSection: React.FC = () => {
           </p>
 
           {/* Interactive Role Toggle with 3 distinct categories */}
-          <div className="mt-3 relative inline-flex p-1.5 rounded-2xl bg-slate-100 border border-slate-200 shadow-inner w-full sm:w-auto min-w-[320px] sm:min-w-[440px]">
+          <div className="mt-3 relative inline-flex p-1.5 rounded-2xl bg-slate-100 border border-slate-200 shadow-inner w-full max-w-sm sm:max-w-none sm:w-auto sm:min-w-[440px]">
             {/* Smooth Sliding Pill */}
             <div
               className="absolute top-1.5 bottom-1.5 rounded-xl bg-white shadow-md border border-slate-200/80 transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] pointer-events-none"
@@ -199,35 +199,35 @@ export const PricingSection: React.FC = () => {
             <button
               onClick={() => setPricingRole('student')}
               className={cn(
-                'relative z-10 flex-1 px-3 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-colors duration-200 text-center whitespace-nowrap',
+                'relative z-10 flex-1 px-2 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-colors duration-200 text-center whitespace-nowrap',
                 pricingRole === 'student'
                   ? 'text-slate-900 font-bold'
                   : 'text-slate-500 hover:text-slate-900'
               )}
             >
-              For Students
+              <span className="hidden sm:inline">For </span>Students
             </button>
             <button
               onClick={() => setPricingRole('teacher')}
               className={cn(
-                'relative z-10 flex-1 px-3 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-colors duration-200 text-center whitespace-nowrap',
+                'relative z-10 flex-1 px-2 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-colors duration-200 text-center whitespace-nowrap',
                 pricingRole === 'teacher'
                   ? 'text-slate-900 font-bold'
                   : 'text-slate-500 hover:text-slate-900'
               )}
             >
-              For Teachers
+              <span className="hidden sm:inline">For </span>Teachers
             </button>
             <button
               onClick={() => setPricingRole('school')}
               className={cn(
-                'relative z-10 flex-1 px-3 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-colors duration-200 text-center whitespace-nowrap',
+                'relative z-10 flex-1 px-2 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-colors duration-200 text-center whitespace-nowrap',
                 pricingRole === 'school'
                   ? 'text-slate-900 font-bold'
                   : 'text-slate-500 hover:text-slate-900'
               )}
             >
-              For Schools
+              <span className="hidden sm:inline">For </span>Schools
             </button>
           </div>
 

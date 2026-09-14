@@ -25,7 +25,7 @@ export const ProblemSolutionSection: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
         
         {/* Card 1: The Broken Preparation (The Problem) */}
-        <div className="relative rounded-3xl bg-white border border-rose-200/80 p-8 sm:p-10 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between overflow-hidden group">
+        <div className="relative rounded-3xl bg-white border border-rose-200/80 p-6 sm:p-8 md:p-10 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between overflow-hidden group">
           {/* Subtle decorative background tint */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-rose-50/50 rounded-full blur-3xl pointer-events-none -z-0" />
           
@@ -79,7 +79,7 @@ export const ProblemSolutionSection: React.FC = () => {
         </div>
 
         {/* Card 2: The CourseLab Solution (The Solution) */}
-        <div className="relative rounded-3xl bg-gradient-to-b from-blue-50/40 via-white to-white border-2 border-[#1D72FE]/40 p-8 sm:p-10 shadow-xl shadow-blue-500/5 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-200 flex flex-col justify-between overflow-hidden ring-1 ring-[#1D72FE]/20 group">
+        <div className="relative rounded-3xl bg-gradient-to-b from-blue-50/40 via-white to-white border-2 border-[#1D72FE]/40 p-6 sm:p-8 md:p-10 shadow-xl shadow-blue-500/5 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-200 flex flex-col justify-between overflow-hidden ring-1 ring-[#1D72FE]/20 group">
           {/* Subtle decorative blue glow */}
           <div className="absolute top-0 right-0 w-72 h-72 bg-blue-100/50 rounded-full blur-3xl pointer-events-none -z-0" />
           

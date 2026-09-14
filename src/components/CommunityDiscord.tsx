@@ -9,7 +9,7 @@ const DiscordIcon: React.FC<{ className?: string }> = ({ className = 'w-5 h-5 fi
 export const CommunityDiscord: React.FC = () => {
   return (
     <section id="community" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-200">
-      <div className="relative z-10 rounded-3xl bg-white border border-slate-200 p-8 md:p-12 overflow-hidden shadow-xl shadow-slate-200/50 transition-all hover:shadow-2xl hover:border-slate-300">
+      <div className="relative z-10 rounded-3xl bg-white border border-slate-200 p-6 sm:p-8 md:p-12 overflow-hidden shadow-xl shadow-slate-200/50 transition-all hover:shadow-2xl hover:border-slate-300">
         {/* Ambient subtle blurple glow */}
         <div className="absolute right-0 top-0 w-96 h-96 bg-[#5865F2]/5 blur-3xl pointer-events-none -z-10" />
 
